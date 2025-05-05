@@ -20,31 +20,34 @@ export default function TopMenu() {
         position: 'sticky',
         top: 0,
         zIndex: 1200,
-        px: 2,
-        py: 1,
+       // px: 2,
+       // py: 1,
        // borderBottom: '1px solid',
        // borderColor: 'divider',
-        bgcolor: 'background.surface',
+       //backgroundColor: 'rgba(218, 165, 32, 0.75)',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
+        overflow: 'auto',
+        borderRadius: 'sm',
+
       }}
     >
    
 
-      <ButtonGroup variant="plain" color="neutral" sx={{ gap: 2 }}>
+      <ButtonGroup variant="plain" color="neutral" size="sm" sx={{ backgroundColor: 'rgba(89, 110, 129, 0.75)'}}  >
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path;
           return (
               <IconButton
                   sx={{ padding: 1 }}
               key={item.path}
-              //variant={isActive ? 'solid' : 'plain'}
+              variant={isActive ? 'solid' : 'plain'}
               color={isActive ? 'primary' : 'neutral'}
               onClick={() => navigate(item.path)}
               title={item.label}
             >
-              {item.icon}
+              {item.icon}{item.label}
             </IconButton>
           );
         })}
